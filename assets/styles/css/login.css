@@ -1,0 +1,19 @@
+#login{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 5vw;
+    width: 100%;
+}
+#login .img_fit{
+    width: 50%;
+}
+.form_login{
+    padding-left: 7vw;
+    width: 50%;
+
+}
+.img_fit img{
+    width: 100%;
+    height: 100vh;
+}

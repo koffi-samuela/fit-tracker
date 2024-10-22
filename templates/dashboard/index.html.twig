@@ -1,0 +1,59 @@
+{% extends 'layout.html.twig' %}
+
+{% block title %}Hello DashboardController!{% endblock %}
+
+{% block body %}
+
+<h1>Dashboard</h1>
+{% if app.user %}
+    Bonjour  {{app.user.firstname}} !
+    <h6>Voici vos entrainements</h6>
+
+{% endif %}
+
+<section class="user_training">
+<table class="table">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>type</th>
+                <th>notes</th>
+            </tr>
+        </thead>
+        <tbody>
+{% for user_workout in user_workouts %}
+    <tr>
+                <td>{{ user_workout.date|date('d/m/Y à H:i')  }}</td>
+                <td>{{ user_workout.notes }}</td>
+                <td>{{ user_workout.typeOfWorkout }}</td>
+            </tr>
+        </tbody>
+{% else %}
+ <tr>
+                <td colspan="4">Aucun entrainement  pour le moment.</td>
+            </tr>
+{% endfor %}
+    </table>
+    <table class="table">
+        <thead>
+            <tr>
+                <th>Repétitions</th>
+                <th>Durée</th>
+            </tr>
+        </thead>
+        <tbody>
+{% for user in user_details %}
+    <tr>
+                <td>{{ user.numberOfRepetitions }}</td>
+                <td>{{ user.duration }}</td>
+            </tr>
+        </tbody>
+{% else %}
+ <tr>
+                <td colspan="4">Aucun entrainement  pour le moment.</td>
+            </tr>
+    </table>
+{% endfor %}
+</section>
+
+{% endblock %}
